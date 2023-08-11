@@ -96,20 +96,22 @@ Private Function FormatDriveLetter(ByVal driveLetter As String, Optional ByVal a
     Else
         length = Len(driveLetter)
         If length = 1 Then
-            
+	    'make sure the drive letter is uppercase
+            retval = UCase(driveLetter)
+
             'If driveLetter is only 1 character long, but is not a letter a-z, then it's not a valid drive letter.
-            If Not driveLetter Like comparison Then
+            If Not retval Like comparison Then
                 Exit Function
             End If
 
-            'make sure the drive letter is uppercase
-            retval = UCase(driveLetter)
             'Add a colon to the end.
             If addColon Then
                 retval = retval & ":"
             End If
         Else
             tmp = UCase(Left(driveLetter, 1))
+            'if length > 1, check to see if maybe the user passed a path (ex: "G:\path") instead of a letter.
+            'or if they just passed some random string that happens to begin with a drive letter (ex: "Go to sleep")
             If tmp Like comparison And Mid(driveLetter, 2, 1) = ":" Then
                 retval = tmp
                 If addColon Then
