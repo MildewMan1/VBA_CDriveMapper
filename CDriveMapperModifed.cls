@@ -8,6 +8,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 'Class: CDriveMapper
+'Author: MildewManOne from Reddit
 'Purpose: Maps and Unmaps drives on the user's computer.
 
 
