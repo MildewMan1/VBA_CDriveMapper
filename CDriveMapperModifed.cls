@@ -206,9 +206,6 @@ ErrHandler:
     Resume CleanUp
     
 End Function
-Private Function DriveAsciiToCharacter(ByVal ascii As Long) As String
-    
-End Function
 Public Function MapDrive(ByVal driveAddress As String, Optional ByVal driveLetterAscii As Long = 0, Optional ByVal forceIfAddressMapped As Boolean = False) As Long
     If Not IsValidDriveLetter(driveLetterAscii) Then
         Call FindAvailableDriveAscii(driveLetterAscii)
